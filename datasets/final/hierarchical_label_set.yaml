@@ -1,0 +1,515 @@
+level1:
+  - cytoskeleton
+  - actin-filaments
+  - intermediate-filaments
+  - centrosome
+  - microtubules
+  - plasma-membrane
+  - cytosol
+  - endoplasmic-reticulum
+  - golgi-apparatus
+  - vesicles
+  - endosomes
+  - lysosomes
+  - peroxisomes
+  - lipid-droplets
+  - mitochondria
+  - nucleoplasm
+  - nuclear-bodies
+  - nuclear-membrane
+  - nuclear-speckles
+  - nucleoli
+  - nucleoli-fibrillar-center
+  - plastid
+
+level2:
+  - cytoskeleton
+  - plasma-membrane
+  - cytosol
+  - endoplasmic-reticulum
+  - golgi-apparatus
+  - vesicles
+  - mitochondria
+  - nucleus
+  - nucleoli
+  - plastid
+
+level3:
+  - cytoskeleton
+  - plasma-membrane
+  - cytosol
+  - endomembrane-system
+  - mitochondria
+  - nucleus
+  - nucleoli
+  - plastid
+
+lvl1_to_lvl2:
+  cytoskeleton: "cytoskeleton"
+  actin-filaments: 'cytoskeleton'
+  plasma-membrane: 'plasma-membrane'
+  centrosome: 'cytoskeleton'
+  cytosol: 'cytosol'
+  endoplasmic-reticulum: 'endoplasmic-reticulum'
+  endosomes: 'vesicles'
+  golgi-apparatus: 'golgi-apparatus'
+  intermediate-filaments: 'cytoskeleton'
+  lipid-droplets: 'vesicles'
+  lysosomes: 'vesicles'
+  microtubules: 'cytoskeleton'
+  mitochondria: 'mitochondria'
+  nuclear-bodies: 'nucleus'
+  nuclear-membrane: 'nucleus'
+  nuclear-speckles: 'nucleus'
+  nucleoli: 'nucleoli'
+  nucleoli-fibrillar-center: 'nucleoli'
+  nucleoplasm: nucleus
+  peroxisomes: 'vesicles'
+  vesicles: 'vesicles'
+  plastid: 'plastid'
+
+lvl1_to_lvl3:
+  cytoskeleton: "cytoskeleton"
+  actin-filaments: 'cytoskeleton'
+  plasma-membrane: 'plasma-membrane'
+  centrosome: 'cytoskeleton'
+  cytosol: 'cytosol'
+  endoplasmic-reticulum: 'endomembrane-system'
+  endosomes: 'endomembrane-system'
+  golgi-apparatus: 'endomembrane-system'
+  intermediate-filaments: 'cytoskeleton'
+  lipid-droplets: 'endomembrane-system'
+  lysosomes: 'endomembrane-system'
+  microtubules: 'cytoskeleton'
+  mitochondria: 'mitochondria'
+  nuclear-bodies: 'nucleus'
+  nuclear-membrane: 'nucleus'
+  nuclear-speckles: 'nucleus'
+  nucleoli: 'nucleoli'
+  nucleoli-fibrillar-center: 'nucleoli'
+  nucleoplasm: 'nucleus'
+  peroxisomes: 'endomembrane-system'
+  vesicles: 'endomembrane-system'
+  plastid: 'plastid'
+
+hpa_to_lvl1:
+  Actin filaments: 'actin-filaments'
+  Aggresome: ''
+  Cell Junctions: 'plasma-membrane'
+  Centriolar satellite: 'centrosome'
+  Centrosome: 'centrosome'
+  Cleavage furrow: ''
+  Cytokinetic bridge: ''
+  Cytoplasmic bodies: 'cytosol'
+  Cytosol: 'cytosol'
+  Endoplasmic reticulum: 'endoplasmic-reticulum'
+  Endosomes: 'endosomes'
+  Focal adhesion sites: 'actin-filaments'
+  Golgi apparatus: 'golgi-apparatus'
+  Intermediate filaments: 'intermediate-filaments'
+  Kinetochore: ''
+  Lipid droplets: 'lipid-droplets'
+  Lysosomes: 'lysosomes'
+  Micronucleus: 'nuclear-bodies'
+  Microtubule ends: 'microtubules'
+  Microtubules: 'microtubules'
+  Midbody: ''
+  Midbody ring: ''
+  Mitochondria: 'mitochondria'
+  Mitotic chromosome: ''
+  Mitotic spindle: ''
+  Nuclear bodies: 'nuclear-bodies'
+  Nuclear membrane: 'nuclear-membrane'
+  Nuclear speckles: 'nuclear-speckles'
+  Nucleoli: 'nucleoli'
+  Nucleoli fibrillar center: 'nucleoli-fibrillar-center'
+  Nucleoli rim: 'nucleoli'
+  Nucleoplasm: 'nucleoplasm'
+  Peroxisomes: 'peroxisomes'
+  Plasma membrane: 'plasma-membrane'
+  Rods & Rings: ''
+  Vesicles: 'vesicles'
+
+opencell_to_lvl1:
+  big_aggregates: 'vesicles'
+  cell_contact: 'plasma-membrane'
+  centrosome: 'centrosome'
+  chromatin: 'nucleoplasm'
+  cytoplasmic: 'cytosol'
+  cytoskeleton: 'cytoskeleton'
+  er: 'endoplasmic-reticulum'
+  focal_adhesions: 'plasma-membrane'
+  golgi: 'golgi-apparatus'
+  membrane: 'plasma-membrane'
+  mitochondria: 'mitochondria'
+  nuclear_membrane: 'nuclear-membrane'
+  nuclear_punctae: 'nuclear-bodies'
+  nucleolus_fc_dfc: 'nucleoli-fibrillar-center'
+  nucleolus_gc: 'nucleoli'
+  nucleoplasm: 'nucleoplasm'
+  vesicles: 'vesicles'
+
+uniprot_to_lvl1:
+  A band: actin-filaments
+  Acidocalcisome membrane: ""
+  Apical cell membrane: plasma-membrane
+  Apicolateral cell membrane: plasma-membrane
+  Ascus epiplasm: "cytosol"
+  Autolysosome: "lysosomes"
+  Autolysosome membrane: "lysosomes"
+  Barrier septum: "plasma-membrane"
+  Basal cell membrane: plasma-membrane
+  Basolateral cell membrane: plasma-membrane
+  Bud: ""
+  Bud membrane: plasma-membrane
+  Bud neck: ""
+  Bud tip: ""
+  COPI-coated vesicle: vesicles
+  COPI-coated vesicle membrane: vesicles
+  COPII-coated vesicle: vesicles
+  COPII-coated vesicle membrane: vesicles
+  Cajal body: nuclear-bodies
+  Cell junction: "plasma-membrane"
+  Cell membrane: plasma-membrane
+  Cell projection: ""
+  Cell septum: ""
+  Cell surface: "plasma-membrane"
+  Cell tip: ""
+  Chromosome: nucleoplasm
+  Cleavage furrow: plasma-membrane
+  Contractile vacuole: ""
+  Contractile vacuole membrane: ""
+  Cornified envelope: plasma-membrane
+  Cortical granule: vesicles
+  Cytolytic granule: lysosomes
+  Cytolytic granule membrane: lysosomes
+  Cytoplasm: cytosol
+  Cytoplasmic granule: vesicles
+  Cytoplasmic granule lumen: vesicles
+  Cytoplasmic granule membrane: vesicles
+  Cytoplasmic ribonucleoprotein granule: vesicles
+  Cytoplasmic vesicle: vesicles
+  Cytoplasmic vesicle lumen: ""
+  Cytoplasmic vesicle membrane: vesicles
+  Dynein axonemal particle: ""
+  Early endosome: endosomes
+  Early endosome membrane: endosomes
+  Endomembrane system: ""
+  Endoplasmic reticulum: endoplasmic-reticulum
+  Endoplasmic reticulum lumen: endoplasmic-reticulum
+  Endoplasmic reticulum membrane: endoplasmic-reticulum
+  Endoplasmic reticulum-Golgi intermediate compartment: ""
+  Endoplasmic reticulum-Golgi intermediate compartment lumen: ""
+  Endoplasmic reticulum-Golgi intermediate compartment membrane: ""
+  Endosome: endosomes
+  Endosome lumen: endosomes
+  Endosome membrane: endosomes
+  Extracellular vesicle: ""
+  Extracellular vesicle membrane: ""
+  Flagellar pocket: ""
+  Forespore membrane: ""
+  Glycosome: "" #  Removed. only found in prokaryotic parasites
+  Glyoxysome: peroxisomes
+  Glyoxysome membrane: peroxisomes
+  Golgi apparatus: golgi-apparatus
+  Golgi apparatus lumen: golgi-apparatus
+  Golgi apparatus membrane: golgi-apparatus
+  Golgi outpost: golgi-apparatus
+  Golgi stack: golgi-apparatus
+  Golgi stack membrane: golgi-apparatus
+  H zone: ""
+  Host: ""
+  Host Golgi apparatus: "" # Everything "Host ..." I ignore
+  Host cell: ""
+  Host cell membrane: ""
+  Host cell surface: ""
+  Host chloroplast envelope: ""
+  Host cytoplasm: ""
+  Host cytosolic vesicle membrane: ""
+  Host cytoplasmic vesicle membrane: ""
+  Host early endosome: ""
+  Host endomembrane system: ""
+  Host endoplasmic reticulum: ""
+  Host endoplasmic reticulum membrane: ""
+  Host endosome: ""
+  Host extracellular space: ""
+  Host membrane: ""
+  Host mitochondrion: ""
+  Host mitochondrion membrane: ""
+  Host nucleus: ""
+  Host periplasm: ""
+  Host peroxisome: ""
+  Hydrogenosome: "" # remove. only found in anaeoribic organisms
+  Hydrogenosome lumen: ""
+  I band: actin-filaments
+  Inflammasome: ""
+  Inner membrane complex: "" # Remove. Only found in apicomplexan parasites
+  Late endosome: endosomes
+  Late endosome lumen: endosomes
+  Late endosome membrane: endosomes
+  Lateral cell membrane: plasma-membrane
+  Lipid droplet: lipid-droplets
+  Lysosome: lysosomes
+  Lysosome lumen: lysosomes
+  Lysosome membrane: lysosomes
+  Lytic vacuole: ""
+  M line: "cytoskeleton" #part of cytoskeleton but not actin/intermediate filament; same comment as other muscle sarcomere filament
+  Melanosome: ""
+  Melanosome membrane: ""
+  Membrane: plasma-membrane
+  Membrane raft: ""
+  Microsome: "" # "vesicle-like"
+  Microsome membrane: ""
+  Midbody: ""
+  Midbody ring: ""
+  Mitochondrion: mitochondria
+  Mitochondrion envelope: mitochondria
+  Mitochondrion inner membrane: mitochondria
+  Mitochondrion intermembrane space: mitochondria
+  Mitochondrion matrix: mitochondria
+  Mitochondrion membrane: mitochondria
+  Mitochondrion outer membrane: mitochondria
+  Mitosome: ""
+  Mitosome matrix: ""
+  Mitosome membrane: ""
+  Myelin membrane: plasma-membrane
+  Nematocyst: "" # Removed. it exists only in Cnidarians (jellyfish, corals, etc); if keep, it would be golgi or vesicles
+  Nucleus: nucleoplasm
+  Nucleus envelope: nuclear-membrane
+  Nucleus inner membrane: nuclear-membrane
+  Nucleus intermembrane space: nuclear-membrane
+  Nucleus lamina: nucleoplasm
+  Nucleus matrix: nucleoplasm
+  Nucleus membrane: nuclear-membrane
+  Nucleus outer membrane: nuclear-membrane
+  Nucleus speckle: nuclear-speckles
+  P-body: cytosol # changed to cytosol. P-bodies are membrane-less phase-seperated RNA granules so any lipid enclosed organelle class like vesicle would be inaccurate
+  PML body: nuclear-bodies
+  Parasitophorous vacuole: ""
+  Parasitophorous vacuole lumen: ""
+  Parasitophorous vacuole membrane: ""
+  Perikaryon: cytosol
+  Periplasm: ""
+  Peroxisome: peroxisomes
+  Peroxisome matrix: peroxisomes
+  Peroxisome membrane: peroxisomes
+  Photoreceptor inner segment: ""
+  Photoreceptor inner segment membrane: ""
+  Photoreceptor outer segment membrane: ""
+  Plastid: plastid
+  Plastid inner membrane: plastid
+  Plastid membrane: plastid
+  Plastid stroma: plastid
+  Postsynapse: ""
+  Postsynaptic cell membrane: plasma-membrane
+  Postsynaptic density: ""
+  Postsynaptic density membrane: plasma-membrane
+  Postsynaptic recycling endosome membrane: endosomes
+  Preautophagosomal structure: ""
+  Preautophagosomal structure membrane: ""
+  Presynapse: ""
+  Presynaptic active zone: ""
+  Presynaptic cell membrane: plasma-membrane
+  Presynaptic endosome: endosomes
+  Prevacuolar compartment: ""
+  Prevacuolar compartment membrane: ""
+  Prospore membrane: ""
+  Protein storage vacuole: ""
+  Protein storage vacuole membrane: ""
+  Recycling endosome: endosomes
+  Recycling endosome lumen: endosomes
+  Recycling endosome membrane: endosomes
+  Rough endoplasmic reticulum: endoplasmic-reticulum
+  Rough endoplasmic reticulum lumen: endoplasmic-reticulum
+  Rough endoplasmic reticulum membrane: endoplasmic-reticulum
+  Sarcoplasmic reticulum: endoplasmic-reticulum
+  Sarcoplasmic reticulum lumen: endoplasmic-reticulum
+  Sarcoplasmic reticulum membrane: endoplasmic-reticulum
+  Secreted: ""
+  Smooth endoplasmic reticulum membrane: endoplasmic-reticulum
+  Spore: ""
+  Spore coat: ""
+  Spore core: ""
+  Spore membrane: ""
+  Spore polar tube: ""
+  Spore wall: ""
+  Stress granule: cytosol
+  Symbiosome: vesicles
+  Symplast: plasma-membrane
+  Synapse: ""
+  Synaptic cell membrane: plasma-membrane
+  Synaptic cleft: ""
+  T-tubule: ""
+  Target cell: ""
+  Target cell membrane: ""
+  Tegument: ""
+  Tegument membrane: ""
+  Thylakoid: plastid
+  U-body: nuclear-bodies
+  Vacuole: ""
+  Vacuole lumen: ""
+  Vacuole membrane: ""
+  Vesicle: vesicles
+  Virion: ""
+  Z line: ""
+  Zona pellucida: ""
+  Zymogen granule: ""
+  Zymogen granule lumen: ""
+  Zymogen granule membrane: ""
+  acrosome: ""
+  acrosome inner membrane: ""
+  acrosome lumen: ""
+  acrosome membrane: ""
+  acrosome outer membrane: ""
+  actin patch: actin-filaments
+  adherens junction: ""
+  aleurone grain: ""
+  aleurone grain membrane: ""
+  amyloplast: plastid
+  amyloplast membrane: plastid
+  apicoplast: plastid
+  apoplast: ""
+  autophagosome: "lysosomes" # cell biologists will hate this, but I agree this is the closest class we have
+  autophagosome lumen: "lysosomes"
+  autophagosome membrane: "lysosomes"
+  axon: ""
+  basement membrane: ""
+  bleb: ""
+  calyx: ""
+  caveola: "plasma-membrane"
+  cell cortex: "actin-filaments"
+  cell wall: ""
+  centriolar satellite: centrosome
+  centriole: centrosome
+  centromere: "nucleoplasm" #Changed to nucleoplasm since that's what we did with chromsomes
+  centrosome: centrosome
+  chloroplast: plastid
+  chloroplast envelope: plastid
+  chloroplast inner membrane: plastid
+  chloroplast intermembrane space: plastid
+  chloroplast membrane: plastid
+  chloroplast nucleoid: plastid
+  chloroplast outer membrane: plastid
+  chloroplast stroma: plastid
+  chloroplast thylakoid: plastid
+  chloroplast thylakoid lumen: plastid
+  chloroplast thylakoid membrane: plastid
+  chromaffin granule: ""
+  chromaffin granule lumen: ""
+  chromaffin granule membrane: ""
+  chromoplast: plastid
+  chromoplast membrane: plastid
+  chromoplast stroma: plastid
+  cilium: ""
+  cilium axoneme: ""
+  cilium basal body: ""
+  cilium membrane: ""
+  cis-Golgi network: golgi-apparatus
+  cis-Golgi network membrane: golgi-apparatus
+  clathrin-coated pit: "plasma-membrane" # not a vesicle
+  clathrin-coated vesicle: vesicles
+  clathrin-coated vesicle membrane: vesicles
+  coated pit: plasma-membrane #?
+  cytoskeleton: "cytoskeleton"
+  cytosol: "cytosol"
+  dendrite: ""
+  dendritic spine: ""
+  dendritic spine membrane: ""
+  desmosome: "plasma-membrane" 
+  etioplast: plastid
+  etioplast membrane: plastid
+  extracellular exosome: ""
+  extracellular matrix: ""
+  extracellular space: ""
+  filopodium: "" # removed since we didn't include cell projection
+  filopodium membrane: "plasma-membrane"
+  filopodium tip: actin-filaments 
+  flagellum: ""
+  flagellum axoneme: ""
+  flagellum basal body: ""
+  flagellum membrane: ""
+  focal adhesion: actin-filaments 
+  gap junction: ""
+  gem: ""
+  growth cone: actin-filaments
+  growth cone membrane: plasma-membrane
+  hemidesmosome: plasma-membrane
+  host cytoskeleton: ""
+  host cytosol: ""
+  host nucleolus: ""
+  host nucleoplasm: ""
+  interphotoreceptor matrix: ""
+  invadopodium: ""
+  invadopodium membrane: ""
+  kinetochore: "" #microtubules. Mapped to nothing in HPA and we want to match here
+  kinetoplast: mitochondria
+  kinocilium: ""
+  lamellipodium: actin-filaments
+  lamellipodium membrane: plasma-membrane
+  microneme: ""
+  microneme lumen: ""
+  microneme membrane: ""
+  microtubule organizing center: microtubules
+  microvillus: actin-filaments
+  microvillus membrane: actin-filaments
+  mitochondrion nucleoid: mitochondria
+  multivesicular body: endosomes
+  multivesicular body lumen: endosomes
+  multivesicular body membrane: endosomes
+  myofibril: ""
+  neuron projection: ""
+  neuronal dense core vesicle: vesicles
+  neuronal dense core vesicle membrane: vesicles
+  nuclear body: nuclear-bodies
+  nuclear pore complex: nuclear-membrane
+  nucleolus: nucleoli
+  nucleolus fibrillar center: nucleoli-fibrillar-center
+  nucleoplasm: nucleoplasm
+  paranodal septate junction: ""
+  perinuclear region: cytosol
+  perinuclear theca: "" # removed for now because it's cytoskeletal but neither actin or microtubule. it is only found in sperm
+  perispore: ""
+  phagocytic cup: ""
+  phagosome: vesicles
+  phagosome lumen: vesicles
+  phagosome membrane: vesicles
+  photoreceptor outer segment: ""
+  phragmoplast: cytosol
+  plasmodesma: ""
+  plastoglobule: ""
+  podosome: actin-filaments
+  podosome membrane: plasma-membrane
+  pollen coat: ""
+  primary cell wall: ""
+  pseudopodium: ""
+  pseudopodium membrane: ""
+  pseudopodium tip: ""
+  rhabdomere: ""
+  rhabdomere membrane: ""
+  rhoptry: ""
+  rhoptry lumen: ""
+  rhoptry membrane: ""
+  ruffle: actin-filaments
+  ruffle membrane: plasma-membrane
+  sarcolemma: ""
+  sarcomere: actin-filaments
+  sarcoplasm: cytosol
+  secretory vesicle: vesicles
+  secretory vesicle lumen: vesicles
+  secretory vesicle membrane: vesicles
+  septate junction: ""
+  spindle: microtubules
+  spindle pole: microtubules
+  spindle pole body: microtubules
+  stereocilium: actin-filaments
+  stereocilium membrane: actin-filaments
+  stress fiber: actin-filaments
+  synaptic vesicle: vesicles
+  synaptic vesicle membrane: vesicles
+  synaptosome: vesicles
+  target cell cytoplasm: ""
+  telomere: nucleoplasm # since we made chromosome nucleoplasm
+  tight junction: ""
+  trans-Golgi network: golgi-apparatus
+  trans-Golgi network membrane: golgi-apparatus
+  uropodium: "" # removed since we didn't include cell projection

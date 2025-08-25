@@ -1,0 +1,18 @@
+biopython==1.84
+ipykernel==6.29.5
+matplotlib==3.9.2
+numpy==1.26.4
+pandas==2.2.3
+pyensembl==2.3.13
+scipy==1.14.1
+tqdm==4.66.5
+seaborn==0.13.2
+transformers==4.46.1
+lightning==2.4.0
+esm==3.0.7.post1
+h5py==3.12.1
+wandb==0.18.7
+gget==0.29.0
+matplotlib-venn==1.1.1
+python-dotenv
+#pip install -q SentencePiece transformers (needed for ProtT5)
