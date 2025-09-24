@@ -14,5 +14,6 @@ h5py==3.12.1
 wandb==0.18.7
 gget==0.29.0
 matplotlib-venn==1.1.1
+dask==2025.7.0 #added for motif finding
 python-dotenv
 #pip install -q SentencePiece transformers (needed for ProtT5)

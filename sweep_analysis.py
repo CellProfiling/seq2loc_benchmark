@@ -8,6 +8,7 @@ import seaborn as sns
 import statsmodels.api as sm
 import yaml
 from statsmodels.formula.api import ols
+import argparse
 
 METRICS = [
     "macro_ap",
@@ -293,14 +294,9 @@ def sweep_analysis(metric_path, save_path):
 
 
 if __name__ == "__main__":
-    sweep_metric_path = (
-        f"/scratch/groups/emmalu/seq2loc/sweep_analysis/overall_metrics.csv"
-    )
-    sweep_save_path = "/scratch/groups/emmalu/seq2loc/sweep_analysis"
-
-    sweep_analysis(sweep_metric_path, sweep_save_path)
-
-    ppi_metric_path = f"/scratch/groups/emmalu/seq2loc/ppi_analysis/all_ppi_metrics.csv"
-    ppi_save_path = "/scratch/groups/emmalu/seq2loc/ppi_analysis"
-
-    ppi_df = pd.read_csv(ppi_metric_path)
+    parser = argparse.ArgumentParser(description="Analyze and plot sweep results")
+    parser.add_argument('--sweep_analysis_dir', type=str, required=True, help='Path to data folder')
+    args = parser.parse_args()
+    sweep_analysis_dir = args.sweep_analysis_dir
+    overall_metrics_path = f"{sweep_analysis_dir}/overall_metrics.csv"
+    sweep_analysis(overall_metrics_path, sweep_analysis_dir)

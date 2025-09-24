@@ -1,0 +1,7 @@
+cytoskeleton: 0
+plasma-membrane: 1
+cytosol: 2
+endomembrane-system: 3
+mitochondria: 4
+nucleus: 5
+nucleoli: 6

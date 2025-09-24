@@ -1,0 +1,21 @@
+{
+  "version": "1.2",
+  "dbname": "swissprot",
+  "dbtype": "Protein",
+  "db-version": 4,
+  "description": "uniprot_sprot.fasta",
+  "number-of-letters": 207621817,
+  "number-of-sequences": 572970,
+  "last-updated": "2025-02-19T14:36:00",
+  "number-of-volumes": 1,
+  "bytes-total": 340871789,
+  "bytes-to-cache": 212778628,
+  "files": [
+    "swissprot.phr",
+    "swissprot.pin",
+    "swissprot.pog",
+    "swissprot.psd",
+    "swissprot.psi",
+    "swissprot.psq"
+  ]
+}

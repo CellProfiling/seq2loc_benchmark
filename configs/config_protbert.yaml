@@ -1,0 +1,41 @@
+method: grid
+metric:
+  goal: maximize
+  name: overall_valid/macro_ap
+parameters:
+  exp_folder: 
+    value: /scratch/groups/emmalu/seq2loc/sweep_experiments
+  exp_name: 
+    value: ProtBert
+  embeddings_file: 
+    value: /scratch/groups/emmalu/seq2loc/embeddings/ProtBert-4k.h5
+  embedding_dim:
+    value: 1024
+  testset_file:
+    value: "/home/groups/emmalu/zwefers/seq2loc/datasets/final/hou_testset.csv"
+  category_level:
+    values: ["level1", "level2", "level3"]
+  batch_size:
+    value: 64
+  valid_every:
+    value: 2
+  mlp_hidden_dim:
+    value: 512
+  mlp_num_hidden_layers:
+    value: 2
+  max_epochs: 
+    value: 100
+  init_lr: 
+    value: 1.e-3
+  clip_len:
+    values: [512, 1024, 2048]
+  mlp_dropout:
+    values: [0, 0.25, 0.5]
+  agg_method:
+    values: ["MaxPool", "MeanPool", "LightAttentionPool", "MultiHeadAttentionPool"]
+  loss:
+    values: ["SigmoidFocalLoss", "BCEWithLogitsLoss"]
+  optimizer:
+    value: "AdamW"
+  metadata_file:
+    values: ["/home/groups/emmalu/zwefers/seq2loc/datasets/final/hpa_trainset.csv", "/home/groups/emmalu/zwefers/seq2loc/datasets/final/uniprot_trainset.csv", "/home/groups/emmalu/zwefers/seq2loc/datasets/final/hpa_uniprot_combined_trainset.csv", "/home/groups/emmalu/zwefers/seq2loc/datasets/final/hpa_uniprot_combined_human_trainset.csv"]

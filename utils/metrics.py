@@ -75,19 +75,40 @@ def roc_auc(y_true, y_pred):
     return rocauc_perclass, rocauc_macro, rocauc_micro
 
 
-def get_all_metrics(y_true, y_pred, y_pred_bin, categories):
+def get_all_metrics(y_true, y_pred, y_pred_bin, categories, thresholds=None, continuous=True):
     cat_count = y_true.sum(axis=0)
     zero_count_cats = np.where(cat_count == 0)[0]
-
-    y_true = np.delete(y_true, zero_count_cats, axis=1)
-    y_pred = np.delete(y_pred, zero_count_cats, axis=1)
-    y_pred_bin = np.delete(y_pred_bin, zero_count_cats, axis=1)
-    cat_count = np.delete(cat_count, zero_count_cats)
-
     cat_perclass = [cat for i, cat in enumerate(categories) if i not in zero_count_cats]
 
-    macro_ap = average_precision_score(y_true, y_pred, average="macro")
-    micro_ap = average_precision_score(y_true, y_pred, average="micro")
+    #Delete categories with no true positives
+    y_true = np.delete(y_true, zero_count_cats, axis=1)
+    y_pred = np.delete(y_pred, zero_count_cats, axis=1)
+    if y_pred_bin is not None:
+        y_pred_bin = np.delete(y_pred_bin, zero_count_cats, axis=1)
+    cat_count = np.delete(cat_count, zero_count_cats)
+
+    if continuous:
+        if y_pred_bin is None:
+            if thresholds is None:
+                thresholds = [get_best_threshold_mcc(y_true[:, i], y_pred[:, i]) for i in range(y_true.shape[1])]
+                thresholds = np.array(thresholds)
+                print(thresholds)
+            y_pred_bin = thresh_wrap(y_pred, thresholds)
+        macro_ap = average_precision_score(y_true, y_pred, average="macro") #continuous
+        micro_ap = average_precision_score(y_true, y_pred, average="micro") #continuous
+        rocauc_perclass, rocauc_macro, rocauc_micro = roc_auc_wrap(y_true, y_pred) #continuous
+        mlrap = label_ranking_average_precision_score(y_true, y_pred) #continuous
+        cov_error = coverage_error(y_true, y_pred) #continuous
+    else: #Need this for random predictor which only has binary outputs
+        y_pred_bin = y_pred
+        macro_ap = np.nan
+        micro_ap = np.nan
+        rocauc_macro = np.nan
+        rocauc_micro = np.nan
+        rocauc_perclass = np.full((y_true.shape[1],), np.nan)
+        mlrap = np.nan
+        cov_error = np.nan
+    
 
     mcc_perclass = np.array(
         [
@@ -120,11 +141,6 @@ def get_all_metrics(y_true, y_pred, y_pred_bin, categories):
     jaccard_perclass = jaccard_score(y_true, y_pred_bin, average=None, zero_division=0)
     jaccard_macro = jaccard_score(y_true, y_pred_bin, average="macro", zero_division=0)
     jaccard_micro = jaccard_score(y_true, y_pred_bin, average="micro", zero_division=0)
-
-    rocauc_perclass, rocauc_macro, rocauc_micro = roc_auc(y_true, y_pred)
-
-    mlrap = label_ranking_average_precision_score(y_true, y_pred)
-    cov_error = coverage_error(y_true, y_pred)
 
     num_labels = y_pred_bin.sum(axis=1).mean()
 

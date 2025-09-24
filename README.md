@@ -1,1 +1,1 @@
-# seq2loc_benchmark
+# seq2loc
