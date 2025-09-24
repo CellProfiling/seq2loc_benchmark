@@ -1,9 +1,6 @@
-[submodule "DeepLoc-2.0"]
-	path = DeepLoc-2.0
+[submodule "Benchmark-Models/DeepLoc-2.0"]
+	path = Benchmark-Models/DeepLoc-2.0
 	url = https://github.com/zwefers/DeepLoc-2.0
-[submodule "benchmark_models/DeepLoc-2.0"]
-	path = benchmark_models/DeepLoc-2.0
-	url = https://github.com/zwefers/DeepLoc-2.0
-[submodule "benchmark_models/MULocDeep"]
-	path = benchmark_models/MULocDeep
+[submodule "Benchmark-Models/MULocDeep"]
+	path = Benchmark-Models/MULocDeep
 	url = https://github.com/zwefers/MULocDeep
