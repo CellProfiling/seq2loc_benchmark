@@ -20,10 +20,14 @@ This repository integrates protein subcellular localization annotations from HPA
     ```
     - If also training DeepLoc2 or MULocDeep models navigate to those submodules and set up separate virtual environments for each
 
-3. **Set up the environment:**
+3. **Set auxilliary tools:**
+    - To do homology partitioning to construct the datasets, you will need to install mmseqs2 (https://github.com/soedinglab/MMseqs2)
+    - To train MULocDeep you will need to make a blast database which requires ncbi-blast (https://blast.ncbi.nlm.nih.gov/Blast.cgi)
+
+4. **Set up the environment:**
     - Edit the paths in the provided `.env` file to match your system and data locations.
 
-## Building the datasets
+## Building the datasets (notebooks/build_dataset/)
 
 This directory contains Jupyter notebooks used to generate and process the datasets for benchmarking subcellular localization prediction
 
@@ -34,7 +38,7 @@ Integrates localization annotations from HPA, UniProt, and OpenCell. Defines can
 Performs homology partitioning of the benchmark datasets. Uses sequence alignment results to identify similar proteins (>40% sequence-identity) between train and test sets and applies stratified group k-fold partitioning to divide data into non-homologous train/test sets and non-homologous folds.
 
 ### 3-process_lacoste_data.ipynb
-Parses and maps localization annotations of wildtype and missense variants from Lacoste et al. (2024). This data is used to evaluate whether sequence predictors generalize to mislocalized pathogenic variants.How
+Parses and maps localization annotations of wildtype and missense variants from Lacoste et al. (2024). This data is used to evaluate whether sequence predictors generalize to mislocalized pathogenic variants.
 
 ## Workflow Scripts
 
@@ -43,16 +47,16 @@ The `scripts/` directory contains scripts for data processing, feature extractio
 ### Generating datasets
 
 - **get_canonical_seqs.sh**  
-  Extracts canonical protein sequences from various metadata CSVs using a Python utility. Iterates over several metadata sources and pulls canonical sequence information (by Uniprot or Ensembl ID) for each. This must be run before generating datasets done by notebooks/building/
+  Extracts canonical protein sequences defined UniProt either based on UniProt id or Ensembl id. This must be run before generating datasets done by notebooks/building/
 
 - **align.sh**  
-  Runs MMseqs2 easy-search alignments between specified query and target FASTA files. Used to compute sequence similarities between datasets for filtering.
+  Runs MMseqs2 easy-search alignments between HOU proteins and HPA/UniProt proteins. Used to compute sequence similarities between test and train datasets for filtering.
 
 - **check.sh**  
-  Similar to `align.sh` but designed to align a fixed query FASTA (e.g., "hou.fasta") against multiple target FASTA datasets. Used to double check that there is not similar sequences between train sets and test set (HOU testset).
+  Runs MMseqs2 easy-search alignments between the HOU test set and each train sets to double check that there are no similar sequences.
 
 - **cluster.sh**  
-  Performs MMseqs2 all-vs-all alignments to define clusters used to form k-folds of trainingset.
+  Runs MMseqs2 easy-search alignments of each trai set against itself to define clusters used to form k-folds of train sets.
 
 - **get_plm_embeddings.sh**  
   Generates protein language model (PLM) embeddings for all datasets using a specified set of models (e.g., ESM1/2/3, ProtT5, ProtBert).
@@ -78,7 +82,7 @@ The `scripts/` directory contains scripts for data processing, feature extractio
   Performs inference on saved MULocDeep models for hou_testset.csv and save metrics.
 
 - **random.sh**
-    Computer performance of random bernoulli baseline for localization prediction where bernoulli parameters are callibrated to the training set
+    Computes performance of random bernoulli baseline for localization prediction where bernoulli parameters are callibrated to the training set
 
 ### Training and evaluating models from PLM-Aggregation sweep
 
@@ -86,25 +90,27 @@ The `scripts/` directory contains scripts for data processing, feature extractio
   Runs wandb sweep (`main.py`) for training sequence localization models that combine a PLM embedding model (ESM2, ESM3, ProtT5, ProtBert) with an aggreagtions strategy (Max-Pooling, Mean-Pooling, Light-Attention, Multihead-Attention). PLM-Aggregation parameters and other hyperparameters are define by config files in ./configs/.
   
 - **sweep_inference.sh**  
-  Runs inference across a sweep of trained models using the main inference scripts (`main_inference.py`) and then gathers and summarizes the results (`sweep_analysis.py`).
+  Runs inference across a sweep of trained models using the main inference script (`main_inference.py`) and then gathers and summarizes the results (`sweep_analysis.py`).
+  
+### Training and evaluating models that incorporate PPI data
 
 - **ppi_sweep_train.sh**  
-  Runs wandb sweep (`main_ppi.py`) for training sequence localization models that also incorporate PPI network data witha Graph-Sage model. PLM-Aggregation parameters, graph model parameters and other hyperparameters are define by config files in ./configs/
-  
+  Runs wandb sweep (`main_ppi.py`) for training sequence localization models that also incorporate PPI network data with a Graph-Sage model. PLM-Aggregation parameters, graph model parameters and other hyperparameters are define by config files in ./configs/
+
 - **ppi_sweep_inference.sh**  
-  Runs inference across a sweep of trained PPI models using the main inference scripts (`main_inference_ppi.py`) and then gathers and summarizes the results (`sweep_analysis_ppi.py`).
+  Runs inference across a sweep of trained PPI models using the main inference script (`main_inference_ppi.py`) and then gathers and summarizes the results (`sweep_analysis_ppi.py`).
   
 > **Note:**  
 > Scripts and noteboooks load environment variables from `.env` and output files are saved to the directories defined in your environment variables.
 
 ## Analysis Notebooks
 
-Notebooks found notebooks/analysis combine results, analyze results and make figures.
+Notebooks found notebooks/analysis/ combine results, analyze results and make figures.
 
 ### Analyzing benchmark datasets
 
 - **dataset_analysis.ipynb**  
-  Explores and visualizes the datasets used in the benchmarks
+  Explores and visualizes the train and test datasets developed for this benchmarking study
 
 ### Analyzing model performance
 
@@ -130,7 +136,7 @@ Notebooks found notebooks/analysis combine results, analyze results and make fig
    Detects attention peaks of best performing models from the sweep. Also searches from PROSITE motifs in the HOU testset. Produces intermediate files used by `motif_analysis_2.ipynb`.
 
 - **motif_analysis_2.ipynb**  
-  Analyzes if best performing model from the sweep attends to funcitonal motifs and sorting-signals directing localization. Produces plots for visualization.
+  Analyzes if best performing model from the sweep attends to functional motifs and sorting-signals directing localization. Produces plots for visualization.
 
 - **ppi_analysis.ipynb**  
   Analyzes the performance of models trained with PPI-network information. Compares to best performing model from the non-PPI sweep and produces plots for visualization.
