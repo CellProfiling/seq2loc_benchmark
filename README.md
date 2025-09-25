@@ -2,7 +2,7 @@
 
 ## Overview
 
-This repository benchmarks sequence-based protein localization models and integrates protein-protein interaction (PPI) data. It includes workflows for data preparation, feature extraction, training, evaluation, and benchmarking with external models such as DeepLoc2 and MULocDeep. All major steps are automated with scripts for both local (bash) and cluster (SLURM) use.
+This repository integrates protein subcellular localization annotations from HPA, OpenCell, and UniProt to create a unified training set and a highly validated test set, with the latter containing only annotations supported by at least two databases. Using these curated datasets, we train and evaluate established protein sequence-to-localization predictors (DeepLoc2, MULocDeep, LAProtT5) and systematically assess combinations of protein language models (ESM2, ESM3, ProtT5, ProtBert) and aggregation strategies (Max-Pooling, Mean-Pooling, Light-Attention, Multihead-Attention). The repository also includes code for exploratory analyses: assessing whether models attend to known functional motifs or localization signals, incorporating PPI-network information into predictions, and evaluating model generalization to pathogenic missense variant that mislocalize.
 
 ## Setup
 
@@ -12,8 +12,10 @@ This repository benchmarks sequence-based protein localization models and integr
     cd seq2loc_benchmark
     ```
 
-2. **Install dependencies:**
+2. **Install dependencies on a virtual environment:**
     ```bash
+    python -m venv <environment_name>
+    source <environment_name>/bin/activate
     pip install -r requirements.txt
     ```
     - If also training DeepLoc2 or MULocDeep models navigate to those submodules and set up separate virtual environments for each
