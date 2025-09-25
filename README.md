@@ -137,3 +137,28 @@ Notebooks found notebooks/analysis combine results, analyze results and make fig
 
 - **variant_analysis.ipynb**  
   Evaluates performance of best model from PLM-Agg sweep on pathogenic missense variants (data from Lacoste et al. (2024)). Produces plots for visualization.
+
+
+
+## Environment Configuration
+
+This repository requires certain environment variables to be set, which are defined in a `.env` file. Update the variables to match your local setup. Below is a description of each required variable:
+
+| Variable Name           | Description                                                                                  |
+|------------------------|-----------------------------------------------------------------------------------------------|
+| `SEQ2LOC_ENV`          | Path to the Python virtual environment used for running seq2loc_benchmark scripts.            |
+| `PLM_CACHE_DIR`        | Directory for caching downloaded protein language models (PLMs).                              |
+| `PLM_EMBEDDING_DIR`    | Directory where precomputed PLM embeddings are stored.                                        |
+| `HUGGING_FACE_TOKEN`   | Hugging Face API token for downloading models if required                                     |
+| `DEEPLOC2_ENV`         | Path to the Python virtual environment for DeepLoc2.                                          |
+| `DEEPLOC2_MODELS_DIR`  | Directory where DeepLoc2 model checkpoints are stored.                                        |
+| `DEEPLOC2_OUTPUT_DIR`  | Directory for DeepLoc2 output files.                                                          |
+| `MULOCDEEP_PSSMS_DIR`  | Directory where PSSMs (Position-Specific Scoring Matrices) for MULocDeep are stored.          |
+| `MULOCDEEP_DATA_DIR`   | Directory for MULocDeep-specific data files.                                                  |
+| `MULOCDEEP_MODELS_DIR` | Directory where MULocDeep model checkpoints and evaluation metrics are stored.                |
+| `LAPROTT5_OUTPUT`      | Directory for LAProtT5 evaluation metrics.                                                    |
+| `RANDOM_OUTPUT`        | Directory to store evaluation metrics for the random bernoulli baseline.                      |
+| `SWEEP_EXP_DIR`        | Directory for saving models from PLMxAgg sweep.                                               |
+| `SWEEP_ANALYSIS_DIR`   | Directory for storing results of sweep analyses.                                              |
+| `PPI_EXP_DIR`          | Directory for saving models from PPI-model sweep.                                             |
+| `PPI_ANALYSIS_DIR`     | Directory for storing results of PPI-model sweep analyses.                                    |
