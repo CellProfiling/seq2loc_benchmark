@@ -105,7 +105,7 @@ The `scripts/` directory contains scripts for data processing, feature extractio
 
 ## Analysis Notebooks
 
-Notebooks found notebooks/analysis/ combine results, analyze results and make figures.
+Execute notebooks in order if start with number.
 
 ### Analyzing benchmark datasets
 
