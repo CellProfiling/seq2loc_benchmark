@@ -29,8 +29,8 @@ This repository integrates protein subcellular localization annotations from HPA
 
 5. **Load the raw data:**
     ```bash
-    mkdir -p data/raw
-    wget -O data/raw/raw_data.zip https://zenodo.org/records/18275384/files/raw_data.zip?download=1
+    mkdir -p datasets/raw
+    wget -O datasets/raw/raw_data.zip https://zenodo.org/records/18275384/files/raw_data.zip?download=1
     unzip data/raw/raw_data.zip -d data/raw/
     ```
    
