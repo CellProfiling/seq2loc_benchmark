@@ -27,6 +27,14 @@ This repository integrates protein subcellular localization annotations from HPA
 4. **Set up the environment:**
     - Edit the paths in the provided `.env` file to match your system and data locations.
 
+5. **Load the raw data:**
+    - INSERT LINK TO ZENODO FILE WITH RAW DATA
+    ```bash
+    mkdir -p data/raw
+    wget -O data/raw/raw_data.zip https://zenodo.org/records/18275384/files/raw_data.zip?download=1
+    unzip data/raw/raw_data.zip -d data/raw/
+    ```
+   
 ## Building the datasets (notebooks/build_dataset/)
 
 This directory contains Jupyter notebooks used to generate and process the datasets for benchmarking subcellular localization prediction
