@@ -28,7 +28,6 @@ This repository integrates protein subcellular localization annotations from HPA
     - Edit the paths in the provided `.env` file to match your system and data locations.
 
 5. **Load the raw data:**
-    - INSERT LINK TO ZENODO FILE WITH RAW DATA
     ```bash
     mkdir -p data/raw
     wget -O data/raw/raw_data.zip https://zenodo.org/records/18275384/files/raw_data.zip?download=1
