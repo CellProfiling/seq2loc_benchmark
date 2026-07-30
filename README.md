@@ -4,6 +4,11 @@
 
 This repository integrates protein subcellular localization annotations from HPA, OpenCell, and UniProt to create a unified training set and a highly validated test set, with the latter containing only annotations supported by at least two databases. Using these curated datasets, we train and evaluate established protein sequence-to-localization predictors (DeepLoc2, MULocDeep, LAProtT5) and systematically assess combinations of protein language models (ESM2, ESM3, ProtT5, ProtBert) and aggregation strategies (Max-Pooling, Mean-Pooling, Light-Attention, Multihead-Attention). The repository also includes code for exploratory analyses: assessing whether models attend to known functional motifs or localization signals, incorporating PPI-network information into predictions, and evaluating model generalization to pathogenic missense variant that mislocalize.
 
+## Dataset and model weights
+
+All raw data use for the project can be found at (https://zenodo.org/records/18275384). Final training and test datasets can be found at (https://zenodo.org/records/18435290). Model weights for retrained DeepLoc2 and MULocDeep models as well as best model from our sweep (ProtT5-MHA) can be found at (https://zenodo.org/records/21520690).
+
+
 ## Setup
 
 1. **Clone the repository and its submodules:**
